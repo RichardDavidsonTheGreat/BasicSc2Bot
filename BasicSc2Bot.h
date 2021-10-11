@@ -17,6 +17,7 @@ using namespace sc2;
 
 class BasicSc2Bot : public sc2::Agent {
 public:
+	//make sure to add all method declarations here!!!
 	virtual void OnGameStart();
 	virtual void OnStep();
 	size_t CountUnitType(UnitTypeID unit_type);
@@ -26,7 +27,7 @@ public:
 	bool TryBuildPylon();
 	const Unit* FindNearestMineralPatch(const Point2D& start);
 	const Unit* FindNearestVespeneGeyser(const Point2D& start);
-	bool TryBuildVespeneGeyser();
+	bool TryBuildAssimilator();
 	bool TryBuildStructureOnUnit(const Unit* builder, ABILITY_ID ability_type_for_structure, const Unit* unit);
 	bool TryBuildStructureOnLocation(const Unit* builder, ABILITY_ID ability_type_for_structure, const Point2D& position);
 	void MineVespene();
@@ -37,8 +38,9 @@ public:
 	bool TryBuildTwilightCouncil();
 
 private:
-	bool ResearchWarpTime = false;
-	bool AttackTime = false;
+	//these are flags to be used to determine state of the game
+	bool ResearchWarpTime = false; //time to research warp gate
+	bool AttackTime = false; //time to attack!!
 };
 
 #endif
